@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - cd lambda_handler
+      - zip lambda_handler.zip sample_lambda_handler.py
+
+artifacts:
+  files:
+    - CFNTemplate.json
+  secondary-artifacts:
+    sourceArtifact:
+      base-directory: $CODEBUILD_SRC_DIR
+      files:
+        - lambda_handler/lambda_handler.zip
