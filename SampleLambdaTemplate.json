@@ -4,6 +4,10 @@
         "SourceBucket": {
             "Description": "The bucket where the lambda source is stored",
             "Type": "String"
+        },
+        "SourceKey": {
+            "Description": "The key where the lambda source is stored",
+            "Type": "String"
         }
     },
     "Resources": {
@@ -17,7 +21,7 @@
                 "Handler": "sample_lambda_handler.handler",
                 "Code": {
                     "S3Bucket": {"Ref": "SourceBucket"},
-                    "S3Key": "lambda_handler.zip"
+                    "S3Key": {"Ref": "SourceKey"}
                 },
                 "Role": {"Fn::GetAtt": ["LambdaExecRole", "Arn"]}
             }
