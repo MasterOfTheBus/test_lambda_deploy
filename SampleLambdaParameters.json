@@ -1,0 +1,10 @@
+{
+	"Parameters": {
+		"SourceBucket": {
+			"Fn::GetArtifactAtt": ["sourceArtifact", "BucketName"]
+        },
+        "SourceKey": {
+        	"Fn::GetArtifactAtt": ["sourceArtifact", "ObjectKey"]
+        }
+	}
+}
