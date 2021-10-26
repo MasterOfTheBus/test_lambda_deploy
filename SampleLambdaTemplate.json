@@ -1,5 +1,11 @@
 {
     "AWSTemplateFormatVersion": "2010-09-09",
+    "Parameters": {
+        "SourceBucket": {
+            "Description": "The bucket where the lambda source is stored",
+            "Type": "String"
+        }
+    },
     "Resources": {
         "TestLambda": {
             "Type": "AWS::Lambda::Function",
@@ -10,8 +16,8 @@
                 "FunctionName": "TestFunction",
                 "Handler": "sample_lambda_handler.handler",
                 "Code": {
-                    "S3Bucket": "sng-lambda-deployments-bucket",
-                    "S3Key": "sample_lambda_handler.zip"
+                    "S3Bucket": {"Ref": "SourceBucket"},
+                    "S3Key": "lambda_handler.zip"
                 },
                 "Role": {"Fn::GetAtt": ["LambdaExecRole", "Arn"]}
             }
