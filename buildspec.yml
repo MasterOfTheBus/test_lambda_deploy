@@ -8,8 +8,12 @@ phases:
 
 artifacts:
   files:
-    - SampleLambdaTemplate.json
+    - '**/*'
   secondary-artifacts:
+    CFNArtifact:
+      base-directory: $CODEBUILD_SRC_DIR
+      files:
+        - SampleLambdaTemplate.json
     sourceArtifact:
       base-directory: $CODEBUILD_SRC_DIR
       files:
