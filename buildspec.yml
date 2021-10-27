@@ -3,10 +3,7 @@ version: 0.2
 phases:
   build:
     commands:
-      - cd lambda_handler
-      - zip lambda_handler.zip sample_lambda_handler.py
-      - cd ..
-      - cp lambda_handler/lambda_handler.zip .
+      - cp lambda_handler/sample_lambda_handler.py .
 
 artifacts:
   files:
@@ -19,4 +16,4 @@ artifacts:
     sourceArtifact:
       base-directory: $CODEBUILD_SRC_DIR
       files:
-        - lambda_handler.zip
+        - sample_lambda_handler.py
